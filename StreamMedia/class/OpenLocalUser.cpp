@@ -1,7 +1,7 @@
 #include "OpenLocalUser.h"
-#include <AUDEC/AUDEC_Header.h>
-#include <AUDEC/AUDEC_CodecID.h>
-#include "VIDEC/VIDEC_Header.h"
+#include <XNet/AUDEC_Header.h>
+#include <XNet/AUDEC_CodecID.h>
+#include "XNet/VIDEC_Header.h"
 #include<stdlib.h>
 #import "CameraHelp.h"
 

@@ -1,12 +1,12 @@
 #include "OpenRemoteUser.h"
-#include <AUDEC/AUDEC_Header.h>
-#include <AUDEC/AUDEC_CodecID.h>
-#include <VIDEC/VIDEC_Header.h>
+#include <XNet/AUDEC_Header.h>
+#include <XNet/AUDEC_CodecID.h>
+#include <XNet/VIDEC_Header.h>
 
-//#import "AudioUnitAecTool.h"
 #import "AudioUnitTool.h"
 #include "webrtc/modules/audio_processing/aecm/include/echo_control_mobile.h"
 #import"AudioUnitManager.h"
+
 OpenRemoteUser::OpenRemoteUser(bool isVideoCalling)
 : m_ulPeerAudioID(0)
 , m_pMediaReceiver(NULL)
