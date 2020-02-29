@@ -1,0 +1,6 @@
+framework module StreamMedia {
+  umbrella header "StreamMedia.h"
+
+  export *
+  module * { export * }
+}
