@@ -46,9 +46,7 @@
     
     if(self)
     {
-        
-        DLog(@"Creating an encoder using Opus version %s", opus_get_version_string());
-        
+    DLog(@"Creating an encoder using Opus version %s", opus_get_version_string());
         int error;
        _encoder = opus_encoder_create(sampleRate, channels, OPUS_APPLICATION_VOIP, &error);
        opus_encoder_ctl(self.encoder, OPUS_SET_BITRATE(10000));//波特率
@@ -81,24 +79,6 @@
 
 - (NSArray *)encodeSample:(AudioBufferList)bufferList
 {
-//    CMItemCount numSamplesInBuffer = CMSampleBufferGetNumSamples(sampleBuffer);
-//    CMTime duration = CMSampleBufferGetDuration(sampleBuffer);
-//    Float64 durationInSeconds = CMTimeGetSeconds(duration);
-//    DLog(@"The sample rate is %f", numSamplesInBuffer / durationInSeconds);
-
-//    CMBlockBufferRef blockBuffer = CMSampleBufferGetDataBuffer(sampleBuffer);
-//    AudioBufferList audioBufferList;
-//     
-//    CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sampleBuffer,
-//                                                            NULL,
-//                                                            &audioBufferList,
-//                                                            sizeof(audioBufferList),
-//                                                            NULL,
-//                                                            NULL,
-//                                                            kCMSampleBufferFlag_AudioBufferList_Assure16ByteAlignment,
-//                                                            &blockBuffer);
-//    
-    
     return [self encodeBufferList:&bufferList];
 }
 
@@ -162,7 +142,6 @@
     }
     
     return output;
-//     }
 }
 
 

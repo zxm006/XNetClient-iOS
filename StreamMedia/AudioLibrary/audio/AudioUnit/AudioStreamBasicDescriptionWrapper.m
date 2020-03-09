@@ -14,8 +14,6 @@
                                             inNumChannels:(UInt32)numChannels
                                           inIsInterleaved:(BOOL)isInterleaved
 {
-    unsigned wordsize;
-    
     AudioStreamBasicDescription asbd = {0};
     asbd.mSampleRate = sampleRate;
     asbd.mFormatID = kAudioFormatLinearPCM;
@@ -25,7 +23,7 @@
     asbd.mBytesPerFrame = asbd.mBytesPerPacket = 0;
     asbd.mReserved = 0;
     
-    
+    unsigned wordsize = 0;
     if (pcmf == PCMFormatFloat32)
     {
         wordsize = 4;

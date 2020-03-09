@@ -2,8 +2,7 @@
 #define _UU_CAPP_CLIENT_H_
 
 #include "ConnectServer.h"
-#include "CritSec.h"
-#include "AutoLock.h"
+#include <mutex>
 class CAppClient
 	: public XNetClientCallback
 {
@@ -19,16 +18,13 @@ public:
 public:
 	//收到连接状态
 	virtual void OnXNetSessionConnectStatus(XNetSession::CONNECT_STATUS cs,int nErrorCode=0);
-
-	//从其它网络应用收到的数据包回调
+//从其它网络应用收到的数据包回调
 	virtual void OnXNetClientReceivedFromServer(const char* pData,int nLen);
-
 	virtual bool IsConnnected(void);
-
 	virtual int SendData(const char*pData,int nLen);
 
 protected:
-       KCritSec m_mKCritSec;
+    std::recursive_mutex    m_mutex;
 	XNetClient*	m_pClient;
 	bool			m_bConnected;
 private:

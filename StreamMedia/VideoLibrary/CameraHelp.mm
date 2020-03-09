@@ -341,7 +341,6 @@ int x = 0;
 
 -(void)startVideoCapture
 {
-    
     DLog(@"startVideoCapture");
     //防锁
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -349,33 +348,25 @@ int x = 0;
         [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     });
     
-    if(_mCaptureDevice || _mCaptureSession)
-    {
+    if(_mCaptureDevice || _mCaptureSession) {
         DLog(@"Already capturing");
         return;
     }
-    if(mFrontCamera)
-    {
-        if((_mCaptureDevice = [CameraHelp cameraAtPosition: AVCaptureDevicePositionFront]) == nil)
-        {
+    if(mFrontCamera) {
+        if((_mCaptureDevice = [CameraHelp cameraAtPosition: AVCaptureDevicePositionFront]) == nil) {
+            DLog(@"Failed to get valide capture device");
+            return;
+        }
+    } else {
+        if((_mCaptureDevice = [CameraHelp cameraAtPosition: AVCaptureDevicePositionBack]) == nil){
             DLog(@"Failed to get valide capture device");
             return;
         }
     }
-    else
-    {
-        if((_mCaptureDevice = [CameraHelp cameraAtPosition: AVCaptureDevicePositionBack]) == nil)
-        {
-            DLog(@"Failed to get valide capture device");
-            return;
-        }
-    }
-    
     
     NSError *error = nil;
     _videoInput = [AVCaptureDeviceInput deviceInputWithDevice:_mCaptureDevice error:&error];
-    if (!_videoInput)
-    {
+    if (!_videoInput) {
         DLog(@"Failed to get video input");
         self.mCaptureDevice = nil;
         return;
@@ -416,13 +407,9 @@ int x = 0;
     dispatch_queue_t queue = dispatch_queue_create("dispatch_queue--ouput", NULL);
     [_avCaptureVideoDataOutput setSampleBufferDelegate:self queue:queue];
     [_mCaptureSession addOutput:_avCaptureVideoDataOutput];
-    
     dispatch_release(queue);
-    
     mStarted = YES;
     doing=NO;
-    
-    
     [self reOrientation];
     NSLog(@"startRunning ====>");
     if(![_mCaptureSession isRunning]){
@@ -435,13 +422,11 @@ int x = 0;
                                              selector:@selector(reOrientation)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
-    //
 }
 
 -(void)stopVideoCapture
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-    
     [self stopPreview];
     if(_mCaptureSession) {
         if(_videoInput) {
@@ -480,7 +465,6 @@ int x = 0;
     [self stopVideoCapture];
     mFrontCamera = NO;
     [self performSelector:@selector(startVideoCapture) withObject:nil afterDelay:0.5];
-    //    [self startVideoCapture];
     return YES;
 }
 
@@ -633,7 +617,7 @@ double MachTimeToSecsCH(uint64_t time)
 - (void)setEncodebitrate:(long)bitrate
 {
     if  (h264Encoder){
-        [h264Encoder setEncodebitrate:bitrate];
+//        [h264Encoder setEncodebitrate:bitrate];
     }
 }
 

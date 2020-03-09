@@ -16,7 +16,6 @@ OpenRemoteUser::OpenRemoteUser(bool isVideoCalling)
 , m_peer_mcuid("MCU001")/*对方MCUID*/
 ,m_liveFFmpegdecode(nil)
 ,m_isVideoCalling(isVideoCalling)
-,m_AudioPlay(nil)
 ,aecmInst(NULL)
 ,unitaAdioid(0)
 {
@@ -30,9 +29,6 @@ OpenRemoteUser::OpenRemoteUser(bool isVideoCalling)
         //        WebRtcAecm_set_config(aecmInst, config);
     }
     else {
-//            m_AudioPlay = [[AudioPlay alloc]init];
-//             [ m_AudioPlay initOpenAL];
-//              [m_AudioPlay LoudSpeaker:1];
       
         m_liveFFmpegdecode = [[liveFFmpegdecode alloc] init];
     }
@@ -51,12 +47,7 @@ void OpenRemoteUser::SetAudioMode(bool mixer)
 
 OpenRemoteUser::~OpenRemoteUser()
 {
-    if(m_AudioPlay) {
-        [m_AudioPlay release];
-        m_AudioPlay =nil;
-        
-    }
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     
     if (m_liveFFmpegdecode) {
         [m_liveFFmpegdecode Endinmpeg_decode_h264];
@@ -172,7 +163,7 @@ void OpenRemoteUser::OnXNetMediaReceiverCallbackAudioPacket(unsigned char*pData,
         }
         else {
         [[AudioUnitManager shareHandle]setaudiodata:pAudio length:len  audioid:unitaAdioid];
-//            [m_AudioPlay openAudioFromQueue:pAudio dataSize:len];
+
         }
     }
 }
@@ -190,10 +181,8 @@ void OpenRemoteUser::SetVideoWindow(void* pVideoWindow)
 
 void OpenRemoteUser::OnXNetMediaReceiverCallbackVideoPacket(unsigned char*pData,int nLen)
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     if(pData != NULL && nLen>16 ) {
-        unsigned int timestamp = AUDEC_HEADER_GET_TIMESTAMP(pData);
-        //      NSLog(@"Video timestamp = %u\n\r",timestamp);
         int nHeaderLen=VIDEC_HEADER_EXT_GET_LEN(pData);
         unsigned char* pVideo = pData + nHeaderLen;
         int len = nLen - nHeaderLen;

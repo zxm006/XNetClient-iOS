@@ -2,11 +2,8 @@
 #include "CVideoChat.h"
 #import <Foundation/Foundation.h>
 #import "AudioUnitTool.h"
-
-
 #include "OpenRemoteUser.h"
 #include "ConnectServer.h"
-#include "AutoLock.h"
 #import "TouchMoveView.h"
 #import <dispatch/queue.h>
 #import "MicBlow.h"
@@ -101,7 +98,7 @@ void CVideoChat::On_SessionConnectStatus(CONNECT_NET_STATUS cs)
             m_pINetWorkCallback->IConnectStatusCallback(CS_LOGINED);
         
     } else if(cs == CS_DISCONNECTED) {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         closeMediaSender();
         StopAllRemoteMedia();
         
@@ -347,7 +344,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
     }
     else if(strCMD=="RELOGIN")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         
         closeMediaSender();
         
@@ -361,7 +358,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="REMOTEUSERQUIT")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         unsigned long ulUserID = pPacket.GetAttrib("USERID").AsUnsignedLong();
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
         std::string strExpand = pPacket.GetAttrib("EXPAND").AsString();
@@ -394,7 +391,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
     }
     
     else if(strCMD=="UPDATEUSERLIST") {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         CMD_ITEM_LST lstItems = pPacket.GetItemList();
         for(CMD_ITEM_LST::const_iterator it=lstItems.begin();it!=lstItems.end();it++) {
             KCmdItem item((std::string)*it);
@@ -412,7 +409,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
             m_pINetWorkCallback->INetReceiveUserList(m_UserInfoList);
     }
     else if(strCMD=="SIGNALINGTRANSFER") {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         bool isbroadcast = pPacket.GetAttrib("BROADCAST").AsBoolean();
         std::string strData = pPacket.GetAttrib("DATA").AsString();
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
@@ -430,7 +427,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
     else if(strCMD=="USERQUIT") {
         NSLog(@"退出房间" );
         
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         closeMediaSender();
         StopAllRemoteMedia();
         
@@ -440,7 +437,7 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
     }
     
     else if(strCMD=="USERMEDIASTATUS") {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         bool isvideo = pPacket.GetAttrib("ISVIDEO").AsBoolean();
         bool isopen = pPacket.GetAttrib("ISOPEN").AsBoolean();
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
@@ -449,11 +446,11 @@ void CVideoChat::OnDispatchCmd(KCmdPacketEx& pPacket)
             m_pINetWorkCallback->UserMediaStatus(strUserName, isvideo, isopen);
     }
     else if(strCMD=="MTGCMDREQ") {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         OnDispatchMtgCmdReg(pPacket);
         
     } else if(strCMD=="MTGCMD") {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         OnDispatchMtgCmd(pPacket);
     } else if(strCMD=="INVITEMTGUSER") {
         std::string mtgid = pPacket.GetAttrib("MTGID").AsString();
@@ -732,7 +729,7 @@ void* CVideoChat::creatVideoWindow(int x,int y,int w,int h)
     TouchMoveView *touchMoveView = [[TouchMoveView alloc]initWithFrame:frame];
     touchMoveView.userInteractionEnabled=YES;
     [touchMoveView setBackgroundColor:[UIColor blackColor]];
-    //    [touchMoveView setHidden:YES];
+  [touchMoveView setHidden:YES];
     return touchMoveView;
 }
 
@@ -763,7 +760,7 @@ void CVideoChat::openLocalMedia(bool isCapScreen)
                 [m_touchMoveView release];
                 m_touchMoveView = nil;
             }
-            m_touchMoveView = (TouchMoveView*)creatVideoWindow(0,0,80,80);
+            m_touchMoveView = (TouchMoveView*)creatVideoWindow(0,0,120,160);
             m_touchMoveView.userName = [NSString stringWithFormat:@"%s",m_username.c_str()];
             if(m_pINetWorkCallback)
                 m_pINetWorkCallback->UserVideoView(m_touchMoveView, m_touchMoveView.userName);
@@ -782,7 +779,7 @@ void CVideoChat::switchCamera()
 
 void CVideoChat::closeMediaSender()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (m_OpenLocalUser) {
             closeLocalAudio();
@@ -910,12 +907,12 @@ void CVideoChat::startAudioUnit()
         i++;
         it++;
     }
-    [[AudioUnitManager shareHandle]start:m_pOpenRemoteUser_map.size()];
+    [[AudioUnitManager shareHandle]start:(unsigned int)m_pOpenRemoteUser_map.size()];
 }
 
 void CVideoChat::StopAllRemoteMedia()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     std::map<unsigned long, class OpenRemoteUser*>::iterator it=m_pOpenRemoteUser_map.begin();
     while (it!=m_pOpenRemoteUser_map.end()) {
         dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -985,7 +982,7 @@ void CVideoChat::OpenRemoteUserVideo(const char* username ,int x,int y,int width
 
 void CVideoChat::closeRemoteUserVideo(const char* username)
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     std::string strusername = username;
     CLIENTUSERINFOLIST_MAP::iterator iter =m_UserInfoList.begin();
     while (iter!=m_UserInfoList.end()) {

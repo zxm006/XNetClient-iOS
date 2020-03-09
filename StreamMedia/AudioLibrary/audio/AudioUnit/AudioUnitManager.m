@@ -48,7 +48,7 @@ static OSStatus inputRenderCallback
         memcpy(ioData->mBuffers[0].mData,
                [buff bytes],
                [buff length] );
-        ioData->mBuffers[0].mDataByteSize = [buff length] ;
+        ioData->mBuffers[0].mDataByteSize = (unsigned int) [buff length] ;
         ioData->mBuffers[0].mNumberChannels = 1;
     }
     else

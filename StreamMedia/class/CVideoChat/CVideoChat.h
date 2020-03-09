@@ -2,15 +2,13 @@
 #define _UU_CAPP_LinkMicMANAGE_H_
 
 #include "ConnectServer.h"
-#include "CritSec.h"
-#include "AutoLock.h"
 #include "uuDefine.h"
 #include "OpenLocalUser.h"
 #include <list>
 #include <vector>
-
+#include <mutex>
 #include <pthread/pthread.h>
-#include "CritSec.h"
+
 #define SIZE_AUDIO_FRAME (2)
 @class TouchMoveView;
 @class NSMutableArray;
@@ -150,7 +148,6 @@ private:
     IVideoChatCallback*          m_pINetWorkCallback;
     CLIENTUSERINFOLIST_MAP     m_UserInfoList;
       AudioUnitAecMix *m_audioUnitAecMix;
-    KCritSec m_mKCritSec;
- 
+    std::recursive_mutex    m_mutex;
 };
 #endif

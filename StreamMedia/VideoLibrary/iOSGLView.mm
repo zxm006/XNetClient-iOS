@@ -4,7 +4,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-
+#include "XLog.h"
 #define DEFAULT_FPS 60
 
 #define kTAG @"iOSGLView"
@@ -351,7 +351,7 @@ static inline RECT LetterBoxRect(const RECT& rcSrc, const RECT& rcDst);
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
         NSString *messageString = [NSString stringWithUTF8String:messages];
-        DLog(  @"%@", messageString);
+        DBG_LOG("%s", [messageString UTF8String]);
         assert(0);
     }
     
@@ -373,7 +373,7 @@ static inline RECT LetterBoxRect(const RECT& rcSrc, const RECT& rcDst);
         GLchar messages[256];
         glGetProgramInfoLog(_program, sizeof(messages), 0, &messages[0]);
         NSString *messageString = [NSString stringWithUTF8String:messages];
-        DLog(  @"%@", messageString);
+        DBG_LOG("%s", [messageString UTF8String]);
         assert(0);
     }
     

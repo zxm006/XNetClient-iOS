@@ -3,10 +3,8 @@
 
 #include "XNet/XNetMediaReceiver.h"
 #include <string>
-#import "AudioPlay.h"
 #import "liveFFmpegdecode.h"
-#include "CritSec.h"
-#include "AutoLock.h"
+#include <mutex>
 // #import "AudioUnitAecTool.h"
  #import "AudioUnitAecMix.h"
 
@@ -38,9 +36,7 @@ public:
  private:
  	bool CreateScreenReceiver();
  	void ReleaseReceiver();
- 
-    
-      AudioPlay *m_AudioPlay;
+
     AudioUnitAecMix *m_audioUnitAecMix;
 private:
 	XNetMediaReceiver*	m_pMediaReceiver;
@@ -60,7 +56,7 @@ private:
 	unsigned short          m_nPort;
     unsigned char*          m_data;
     unsigned long          m_length;
-     KCritSec m_mKCritSec;
+    std::recursive_mutex    m_mutex;
     void *aecmInst;
     int unitaAdioid;
 //    AudioEng *m_AudioEng;

@@ -19,17 +19,11 @@
 @property(nonatomic,strong)NSString *strUserName;
 @property(nonatomic,assign)unsigned long ulUserId;
 @property(nonatomic,assign)unsigned long ulUserAudioID;
-
-
-
 @end
 
 
-
-@interface ViewController : UIViewController 
-
+@interface ViewController : UIViewController
 {}
-@property(nonatomic,assign)IBOutlet UIView *mlocalview;
 @property(nonatomic,assign)IBOutlet UIImageView *imageview;
 @end
 

@@ -103,12 +103,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     [self initNotification];
-    
-    unsigned long abc =13345;
-    int x = sizeof(abc);
-  
-    
-    
     // Override point for customization after application launch.
     return YES;
 }

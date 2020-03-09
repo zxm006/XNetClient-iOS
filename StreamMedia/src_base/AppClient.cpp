@@ -55,7 +55,7 @@ int CAppClient::SendData(const char*pData,int nLen)
 void CAppClient::SetFunPointer(CmdTCPClientCallback* pCallback)
 {
 	assert(pCallback);
-     KAutoLock lock(m_mKCritSec);
+      std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
 	m_pCallback = pCallback;
 }
 
@@ -133,7 +133,7 @@ void CAppClient::OnXNetSessionConnectStatus(XNetSession::CONNECT_STATUS cs,int n
 
 	m_bConnected=(XNetSession::CS_CONNECTED==cs || XNetSession::CS_RECONNECTED==cs);
 
-      KAutoLock lock(m_mKCritSec);
+       std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     
 	m_pCallback->On_SessionConnectStatus((CONNECT_NET_STATUS)cs);
 }
@@ -141,7 +141,7 @@ void CAppClient::OnXNetSessionConnectStatus(XNetSession::CONNECT_STATUS cs,int n
 //从其它网络应用收到的数据包回调
 void CAppClient::OnXNetClientReceivedFromServer(const char* pData,int nLen)
 {
-     KAutoLock lock(m_mKCritSec);
+      std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     
     
  if(m_isEncrypt)

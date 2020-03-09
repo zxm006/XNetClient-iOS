@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6103246020439F6E009BBA0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B1FDA01ED6D8AD00C67400 /* AVFoundation.framework */; };
+		61298C712415DC310079CCFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C702415DC310079CCFA /* OpenGLES.framework */; };
+		61298C732415DC4B0079CCFA /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C722415DC4B0079CCFA /* VideoToolbox.framework */; };
+		61298C742415DC530079CCFA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B1FD9C1ED6D87300C67400 /* AudioToolbox.framework */; };
+		61298C782415DCA00079CCFA /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C772415DCA00079CCFA /* CoreMedia.framework */; };
+		61298C7A2415DCB60079CCFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C792415DCB60079CCFA /* CoreGraphics.framework */; };
+		61298C7D2415DD110079CCFA /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C7B2415DCCB0079CCFA /* CoreVideo.framework */; };
+		61298C7F2415DD420079CCFA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C7E2415DD420079CCFA /* QuartzCore.framework */; };
+		61B15DEF240BABE800FB2228 /* StreamMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616ECAA81F4C045200AE263D /* StreamMedia.framework */; };
 		61BBD98E1F550C82002DC4CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BBD97E1F550C82002DC4CC /* AppDelegate.m */; };
 		61BBD98F1F550C82002DC4CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BBD97F1F550C82002DC4CC /* Assets.xcassets */; };
 		61BBD9901F550C82002DC4CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61BBD9811F550C82002DC4CC /* LaunchScreen.storyboard */; };
@@ -16,7 +24,6 @@
 		61BBD9941F550C82002DC4CC /* UserListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BBD9891F550C82002DC4CC /* UserListCell.m */; };
 		61BBD9951F550C82002DC4CC /* UserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61BBD98A1F550C82002DC4CC /* UserListCell.xib */; };
 		61BBD9961F550C82002DC4CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BBD98C1F550C82002DC4CC /* ViewController.m */; };
-		61BBD9981F550D9B002DC4CC /* StreamMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616ECAA81F4C045200AE263D /* StreamMedia.framework */; };
 		61BBD9991F550D9E002DC4CC /* StreamMedia.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616ECAA81F4C045200AE263D /* StreamMedia.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61C27EB61D0FFE2D005CDAA2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C27EB51D0FFE2D005CDAA2 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -53,8 +60,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6103245B20439CA1009BBA0C /* liveUpload.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = liveUpload.framework; path = "StreamMedia-test/libs/liveUpload.framework"; sourceTree = "<group>"; };
-		6103245E20439F63009BBA0C /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		61298C702415DC310079CCFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		61298C722415DC4B0079CCFA /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		61298C772415DCA00079CCFA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		61298C792415DCB60079CCFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		61298C7B2415DCCB0079CCFA /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		61298C7E2415DD420079CCFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		616ECAA31F4C045100AE263D /* StreamMedia.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = StreamMedia.xcodeproj; path = ../StreamMedia/StreamMedia.xcodeproj; sourceTree = "<group>"; };
 		61B1FD991ED6D84200C67400 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		61B1FD9C1ED6D87300C67400 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -84,8 +95,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61298C7F2415DD420079CCFA /* QuartzCore.framework in Frameworks */,
+				61298C7D2415DD110079CCFA /* CoreVideo.framework in Frameworks */,
+				61298C7A2415DCB60079CCFA /* CoreGraphics.framework in Frameworks */,
+				61298C782415DCA00079CCFA /* CoreMedia.framework in Frameworks */,
+				61298C742415DC530079CCFA /* AudioToolbox.framework in Frameworks */,
+				61298C732415DC4B0079CCFA /* VideoToolbox.framework in Frameworks */,
 				6103246020439F6E009BBA0C /* AVFoundation.framework in Frameworks */,
-				61BBD9981F550D9B002DC4CC /* StreamMedia.framework in Frameworks */,
+				61298C712415DC310079CCFA /* OpenGLES.framework in Frameworks */,
+				61B15DEF240BABE800FB2228 /* StreamMedia.framework in Frameworks */,
 				61C27EB61D0FFE2D005CDAA2 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +180,12 @@
 		61CFBFB01D8E2A0000523EE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6103245E20439F63009BBA0C /* ReplayKit.framework */,
-				6103245B20439CA1009BBA0C /* liveUpload.framework */,
+				61298C7E2415DD420079CCFA /* QuartzCore.framework */,
+				61298C7B2415DCCB0079CCFA /* CoreVideo.framework */,
+				61298C792415DCB60079CCFA /* CoreGraphics.framework */,
+				61298C772415DCA00079CCFA /* CoreMedia.framework */,
+				61298C722415DC4B0079CCFA /* VideoToolbox.framework */,
+				61298C702415DC310079CCFA /* OpenGLES.framework */,
 				61B1FDA01ED6D8AD00C67400 /* AVFoundation.framework */,
 				61B1FD9C1ED6D87300C67400 /* AudioToolbox.framework */,
 				61B1FD9D1ED6D87300C67400 /* AudioUnit.framework */,
@@ -210,7 +232,7 @@
 		61C27E5E1D0FFB6F005CDAA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = zhangxinming;
 				TargetAttributes = {
 					61C27E651D0FFB70005CDAA2 = {
@@ -233,10 +255,9 @@
 			};
 			buildConfigurationList = 61C27E611D0FFB6F005CDAA2 /* Build configuration list for PBXProject "StreamMedia-test" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -326,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -335,12 +357,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -372,7 +396,7 @@
 				HEADER_SEARCH_PATHS = ../inc;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "65a79977-92ed-4409-a526-05564b0fd3bf";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,6 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -393,12 +418,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -437,7 +464,7 @@
 		61C27E7E1D0FFB70005CDAA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -450,15 +477,13 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Lib",
-					"$(PROJECT_DIR)/StreamMedia-test/libs",
+					"$(PROJECT_DIR)/../StreamMedia/lib",
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "StreamMedia-test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
@@ -473,7 +498,7 @@
 		61C27E7F1D0FFB70005CDAA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -486,15 +511,13 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Lib",
-					"$(PROJECT_DIR)/StreamMedia-test/libs",
+					"$(PROJECT_DIR)/../StreamMedia/lib",
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "StreamMedia-test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;

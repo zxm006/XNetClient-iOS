@@ -32,7 +32,7 @@
  */
 + (AudioComponentDescription)mixerUnitAcd
 {
-    return [self setupAcdWithComponentType:kAudioUnitType_Mixer componentSubType:kAudioUnitSubType_AU3DMixerEmbedded];
+    return [self setupAcdWithComponentType:kAudioUnitType_Mixer componentSubType:kAudioUnitSubType_SpatialMixer];
 }
 
 /**
