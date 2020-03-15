@@ -36,13 +36,8 @@ static OSStatus inputRenderCallback
   AudioBufferList             *ioData
   )
 {
-    
-    
     AudioUnitManager *audioUnitTool=(AudioUnitManager*)inRefCon;
-    
-    
     NSData *buff=[audioUnitTool getaudiodata:inNumberFrames audioid:inBusNumber];
-    
     if (buff)
     {
         memcpy(ioData->mBuffers[0].mData,
@@ -58,11 +53,8 @@ static OSStatus inputRenderCallback
             memset(ioData->mBuffers[i].mData, 0, ioData->mBuffers[i].mDataByteSize);
         }
     }
-    
     return noErr;
 }
-
-
 
 static AudioUnitManager* g_AudioUnitManager= nil;
 
@@ -74,8 +66,6 @@ static AudioUnitManager* g_AudioUnitManager= nil;
     int  busCount;
     AUNode iONode;
     AUNode mixerNode;
-    
-    
 }
 
 @property (nonatomic, assign) AudioStreamBasicDescription  streamFormat;
@@ -111,7 +101,6 @@ static AudioUnitManager* g_AudioUnitManager= nil;
         AUGraphClose(_graph);
         DisposeAUGraph(_graph);
         AUGraphUninitialize(_graph);
-        
     }
     [super dealloc];
 }

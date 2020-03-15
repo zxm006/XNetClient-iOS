@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6105E32C1D40566F0064735D /* AudioUnitTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 6105DEBC1D40566C0064735D /* AudioUnitTool.h */; };
-		6105E32D1D40566F0064735D /* AudioUnitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105DEBD1D40566C0064735D /* AudioUnitTool.m */; };
 		6105E7361D4056700064735D /* OpenLocalUser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6105E2F81D40566F0064735D /* OpenLocalUser.cpp */; };
 		6105E7371D4056700064735D /* OpenLocalUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6105E2F91D40566F0064735D /* OpenLocalUser.h */; };
 		6105E7381D4056700064735D /* OpenRemoteUser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6105E2FA1D40566F0064735D /* OpenRemoteUser.cpp */; };
@@ -37,6 +35,8 @@
 		610759B91DD40EE100326BE2 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 610759B41DD40EE100326BE2 /* libavformat.a */; };
 		6119BAC81E25CABA003F28BE /* TouchMoveView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6119BAC61E25CABA003F28BE /* TouchMoveView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6119BAC91E25CABA003F28BE /* TouchMoveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6119BAC71E25CABA003F28BE /* TouchMoveView.m */; };
+		61298C84241C78450079CCFA /* AudioUnitTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 61298C82241C78440079CCFA /* AudioUnitTool.h */; };
+		61298C85241C78450079CCFA /* AudioUnitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 61298C83241C78450079CCFA /* AudioUnitTool.m */; };
 		612D179C1E306D1800691001 /* aes.c in Sources */ = {isa = PBXBuildFile; fileRef = 612D179A1E306D1800691001 /* aes.c */; };
 		612D179D1E306D1800691001 /* aes.h in Headers */ = {isa = PBXBuildFile; fileRef = 612D179B1E306D1800691001 /* aes.h */; };
 		612F80711ECE8259005F9E19 /* CapScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 612F80691ECE8259005F9E19 /* CapScreen.h */; };
@@ -94,8 +94,6 @@
 
 /* Begin PBXFileReference section */
 		6105DEAF1D4055D70064735D /* StreamMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StreamMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6105DEBC1D40566C0064735D /* AudioUnitTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnitTool.h; sourceTree = "<group>"; };
-		6105DEBD1D40566C0064735D /* AudioUnitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioUnitTool.m; sourceTree = "<group>"; };
 		6105E2F81D40566F0064735D /* OpenLocalUser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenLocalUser.cpp; sourceTree = "<group>"; };
 		6105E2F91D40566F0064735D /* OpenLocalUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenLocalUser.h; sourceTree = "<group>"; };
 		6105E2FA1D40566F0064735D /* OpenRemoteUser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OpenRemoteUser.cpp; sourceTree = "<group>"; };
@@ -133,6 +131,8 @@
 		610759C51DD4114C00326BE2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6119BAC61E25CABA003F28BE /* TouchMoveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchMoveView.h; sourceTree = "<group>"; };
 		6119BAC71E25CABA003F28BE /* TouchMoveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchMoveView.m; sourceTree = "<group>"; };
+		61298C82241C78440079CCFA /* AudioUnitTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnitTool.h; sourceTree = "<group>"; };
+		61298C83241C78450079CCFA /* AudioUnitTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioUnitTool.m; sourceTree = "<group>"; };
 		612D179A1E306D1800691001 /* aes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aes.c; sourceTree = "<group>"; };
 		612D179B1E306D1800691001 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		612F80691ECE8259005F9E19 /* CapScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapScreen.h; sourceTree = "<group>"; };
@@ -249,11 +249,11 @@
 		6105DEBB1D40566C0064735D /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				61298C82241C78440079CCFA /* AudioUnitTool.h */,
+				61298C83241C78450079CCFA /* AudioUnitTool.m */,
 				618D568323EE9695003927F3 /* AudioUnitAecMix.h */,
 				618D568423EE9695003927F3 /* AudioUnitAecMix.m */,
 				61F813681FE78F7E0072FD25 /* AudioUnit */,
-				6105DEBC1D40566C0064735D /* AudioUnitTool.h */,
-				6105DEBD1D40566C0064735D /* AudioUnitTool.m */,
 				6156CA481F9F0ECE0055D856 /* MicBlow.h */,
 				6156CA491F9F0ECE0055D856 /* MicBlow.m */,
 			);
@@ -460,7 +460,6 @@
 				612F80781ECE8259005F9E19 /* VideoLibrary.h in Headers */,
 				6105E73D1D4056700064735D /* AppClient.h in Headers */,
 				612D179D1E306D1800691001 /* aes.h in Headers */,
-				6105E32C1D40566F0064735D /* AudioUnitTool.h in Headers */,
 				6105E7581D4056700064735D /* KString.h in Headers */,
 				612F80761ECE8259005F9E19 /* VideoCaptureEncod.h in Headers */,
 				61F813721FE78F7E0072FD25 /* AUNodeWrapper.h in Headers */,
@@ -470,6 +469,7 @@
 				6195093B1DF8F168004D650A /* iOSGLView.h in Headers */,
 				619289A41F70EDC20092E38B /* BeautifyFace.h in Headers */,
 				612F80741ECE8259005F9E19 /* CapScreenEnc.h in Headers */,
+				61298C84241C78450079CCFA /* AudioUnitTool.h in Headers */,
 				6105E7391D4056700064735D /* OpenRemoteUser.h in Headers */,
 				6105E7371D4056700064735D /* OpenLocalUser.h in Headers */,
 			);
@@ -575,7 +575,6 @@
 				6105E7571D4056700064735D /* KString.cpp in Sources */,
 				6195093C1DF8F168004D650A /* iOSGLView.mm in Sources */,
 				6105E7381D4056700064735D /* OpenRemoteUser.cpp in Sources */,
-				6105E32D1D40566F0064735D /* AudioUnitTool.m in Sources */,
 				61AFC3CC1F8DC898002B8EE8 /* CVideoChat.cpp in Sources */,
 				618D568623EE9695003927F3 /* AudioUnitAecMix.m in Sources */,
 				6105E7471D4056700064735D /* CSIOpusDecoder.m in Sources */,
@@ -589,6 +588,7 @@
 				617EE1821EADB07100698020 /* H264HwEncoderImpl.m in Sources */,
 				612F80731ECE8259005F9E19 /* CapScreenEnc.cpp in Sources */,
 				610759B21DD40E1B00326BE2 /* liveFFmpegdecode.m in Sources */,
+				61298C85241C78450079CCFA /* AudioUnitTool.m in Sources */,
 				6105E7441D4056700064735D /* CSIDataQueue.c in Sources */,
 				6156CA4B1F9F0ECE0055D856 /* MicBlow.m in Sources */,
 				6105E73C1D4056700064735D /* AppClient.cpp in Sources */,

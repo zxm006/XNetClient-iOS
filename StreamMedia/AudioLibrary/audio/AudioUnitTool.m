@@ -40,11 +40,7 @@ OSStatus recordingCallback(void *inRefCon,
                            AudioBufferList *ioData)
 {
     AudioUnitTool *audioUnitTool=(AudioUnitTool*)inRefCon;
-    
     AudioUnit  audioUnit = audioUnitTool.mAudioUnit;
-    
-    
-    
     AudioBuffer buffer;
     void* audiodata = malloc(inNumberFrames *2);
     buffer.mDataByteSize = inNumberFrames *2;
@@ -61,7 +57,7 @@ OSStatus recordingCallback(void *inRefCon,
     audioUnitTool.bufflength=buffer.mDataByteSize;
     
     if (audioUnitTool&& audioUnitTool. mismute) {
-        NSArray *encodedSamples = [audioUnitTool.encoder encodeSample:bufferList];
+        NSArray *encodedSamples = [audioUnitTool.encoder X:bufferList];
         if ([encodedSamples count]>0) {
             NSData *data= [NSData dataWithData: [encodedSamples objectAtIndex:0]];
             if(data)
