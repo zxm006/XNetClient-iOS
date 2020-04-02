@@ -27,7 +27,8 @@ m_longitude(0),
 m_mtgType(MTG_Common),
 m_pINetWorkCallback(NULL)
 {
-    XNetSetting::SetAudioProtocolType(XNetSetting::PT_UDP);
+    XNetSetting::SetAudioProtocolType(XNetSetting::PT_TCP);
+    XNetSetting::SetVideoProtocolType(XNetSetting::PT_TCP);
     XNetSetting::SetMCUOnly(1);
     m_pINetWorkCallback=NULL;
     m_UserInfoList.clear();
