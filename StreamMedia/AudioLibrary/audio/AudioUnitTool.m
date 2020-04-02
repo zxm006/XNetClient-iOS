@@ -57,7 +57,7 @@ OSStatus recordingCallback(void *inRefCon,
     audioUnitTool.bufflength=buffer.mDataByteSize;
     
     if (audioUnitTool&& audioUnitTool. mismute) {
-        NSArray *encodedSamples = [audioUnitTool.encoder X:bufferList];
+        NSArray *encodedSamples = [audioUnitTool.encoder encodeSample:bufferList];
         if ([encodedSamples count]>0) {
             NSData *data= [NSData dataWithData: [encodedSamples objectAtIndex:0]];
             if(data)
