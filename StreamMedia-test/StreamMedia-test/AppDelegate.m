@@ -24,8 +24,9 @@
 
 #import "AppDelegate.h"
 #import <StreamMedia/StreamMedia.h>
-
-
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>  //为判断网络制式的主要文件
+#import <CoreTelephony/CTCarrier.h>
+#import <CoreTelephony/CTCellularData.h>
 @interface AppDelegate ()
 
 @end
@@ -33,6 +34,67 @@
 @implementation AppDelegate
 
 
+- (void)checkNetwork{
+    
+    CTCellularData *cellularData = [[CTCellularData alloc]init];
+    
+    cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state){
+        
+        BOOL _isRestricted = YES;
+        
+        //获取联网状态
+        
+        switch (state) {
+                
+            case kCTCellularDataRestricted:
+                
+                NSLog(@"Restricted"); //拒绝
+                
+                  break;
+                
+            case kCTCellularDataNotRestricted:
+                
+                _isRestricted = NO;
+                
+                NSLog(@"Not Restricted"); //允许
+                
+                break;
+                
+            case kCTCellularDataRestrictedStateUnknown:
+                
+                NSLog(@"Unknown"); //未知
+                
+                break;
+                
+            default:
+                
+                break;
+                
+        };
+        
+        if (_isRestricted == YES) {
+            
+            [self requestNetwork];
+            
+        }
+        
+    };
+    
+}
+
+- (void)requestNetwork{
+    
+    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+        
+    }];
+    
+}
+
+ 
 - (void)initNotification {
     
     //apns
@@ -102,6 +164,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
+    [self checkNetwork];
+    
     [self initNotification];
     // Override point for customization after application launch.
     return YES;

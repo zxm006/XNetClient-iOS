@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6103246020439F6E009BBA0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B1FDA01ED6D8AD00C67400 /* AVFoundation.framework */; };
+		612839DF24361C5D000E0AF6 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612839DE24361C5D000E0AF6 /* ExternalAccessory.framework */; };
+		612839E124361EB4000E0AF6 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 612839E024361EB4000E0AF6 /* CoreTelephony.framework */; };
 		61298C712415DC310079CCFA /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C702415DC310079CCFA /* OpenGLES.framework */; };
 		61298C732415DC4B0079CCFA /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61298C722415DC4B0079CCFA /* VideoToolbox.framework */; };
 		61298C742415DC530079CCFA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B1FD9C1ED6D87300C67400 /* AudioToolbox.framework */; };
@@ -60,6 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		612839DD24361C5C000E0AF6 /* StreamMedia-testDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "StreamMedia-testDebug.entitlements"; path = "StreamMedia-test/StreamMedia-testDebug.entitlements"; sourceTree = SOURCE_ROOT; };
+		612839DE24361C5D000E0AF6 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		612839E024361EB4000E0AF6 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		61298C702415DC310079CCFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		61298C722415DC4B0079CCFA /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		61298C772415DCA00079CCFA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -95,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612839E124361EB4000E0AF6 /* CoreTelephony.framework in Frameworks */,
 				61298C7F2415DD420079CCFA /* QuartzCore.framework in Frameworks */,
 				61298C7D2415DD110079CCFA /* CoreVideo.framework in Frameworks */,
 				61298C7A2415DCB60079CCFA /* CoreGraphics.framework in Frameworks */,
@@ -105,6 +111,7 @@
 				61298C712415DC310079CCFA /* OpenGLES.framework in Frameworks */,
 				61B15DEF240BABE800FB2228 /* StreamMedia.framework in Frameworks */,
 				61C27EB61D0FFE2D005CDAA2 /* UIKit.framework in Frameworks */,
+				612839DF24361C5D000E0AF6 /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +157,7 @@
 		61C27E681D0FFB70005CDAA2 /* StreamMedia-test */ = {
 			isa = PBXGroup;
 			children = (
+				612839DD24361C5C000E0AF6 /* StreamMedia-testDebug.entitlements */,
 				61BFE733215F58410060B946 /* StreamMedia-test.entitlements */,
 				61BBD97D1F550C82002DC4CC /* AppDelegate.h */,
 				61BBD97E1F550C82002DC4CC /* AppDelegate.m */,
@@ -180,6 +188,8 @@
 		61CFBFB01D8E2A0000523EE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				612839E024361EB4000E0AF6 /* CoreTelephony.framework */,
+				612839DE24361C5D000E0AF6 /* ExternalAccessory.framework */,
 				61298C7E2415DD420079CCFA /* QuartzCore.framework */,
 				61298C7B2415DCCB0079CCFA /* CoreVideo.framework */,
 				61298C792415DCB60079CCFA /* CoreGraphics.framework */,
@@ -469,7 +479,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_ENTITLEMENTS = "StreamMedia-test/StreamMedia-test.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "StreamMedia-test/StreamMedia-testDebug.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

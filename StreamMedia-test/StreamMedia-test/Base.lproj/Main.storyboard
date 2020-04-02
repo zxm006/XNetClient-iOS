@@ -40,8 +40,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器ip:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kD-Ie-nD9">
-                                <rect key="frame" x="27.5" y="147.5" width="70.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务器ip:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kD-Ie-nD9">
+                                <rect key="frame" x="27.5" y="153.5" width="70.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
                                     <action selector="btclosecam:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEa-WS-e9f"/>
                                 </connections>
                             </button>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="192.168.1.7" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-9b-842">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123.207.174.133" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-9b-842">
                                 <rect key="frame" x="106" y="146.5" width="261" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -157,7 +157,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="skr-u1-2Lf" secondAttribute="trailing" constant="39" id="YLu-sa-bsQ"/>
                             <constraint firstItem="nZN-tc-GDi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="Yxk-64-HS5"/>
                             <constraint firstItem="9id-un-aag" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="73" id="ZNR-lR-7HF"/>
-                            <constraint firstItem="5kD-Ie-nD9" firstAttribute="top" secondItem="1gZ-Nw-fzE" secondAttribute="bottom" constant="16" id="Zm7-OC-zLJ"/>
+                            <constraint firstItem="5kD-Ie-nD9" firstAttribute="top" secondItem="1gZ-Nw-fzE" secondAttribute="bottom" constant="22" id="Zm7-OC-zLJ"/>
                             <constraint firstItem="9id-un-aag" firstAttribute="top" secondItem="qnh-yA-vhp" secondAttribute="bottom" constant="7.5" id="aEA-Zz-1pm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ua5-XO-7mg" secondAttribute="trailing" constant="14" id="bXe-xA-XsE"/>
                             <constraint firstItem="Rq0-vh-XBw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="cLo-s1-00T"/>
