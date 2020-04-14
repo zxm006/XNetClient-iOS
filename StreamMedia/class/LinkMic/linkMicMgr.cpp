@@ -20,10 +20,10 @@ static TouchMoveView  *m_touchMoveView  =  nil;
 static UIView         *m_localVideo     =  nil;
 static UIView         *m_peerVideo      =  nil;
 
-class ILinkMic
-:public ILinkMicCallback
+class ILinkMic :public ILinkMicCallback
 {
 public:
+    
     virtual void IConnectStatusCallback(CONNECT_NET_STATUS cs);
     virtual void INetReceiveUserList(CLIENTUSERINFOLIST_MAP& UserInfoList);
     virtual void INetReceiveUserLogin(unsigned long uPeerUserID, std::string strName,unsigned long useraudioId);
@@ -31,8 +31,6 @@ public:
     virtual void INetReceiveData(unsigned long uPeerUserID, std::string strName, std::string strData, unsigned long nLen);
     virtual void INetBroadcastData(unsigned long uPeerUserID, const char* pData, unsigned long nLen);
  
- 
-    
 };
 
 static ILinkMic * m_ILinkMic =NULL;

@@ -1,11 +1,10 @@
-//#include "StdAfx.h"
 #include "CIntercomManage.h"
 #import <Foundation/Foundation.h>
 #import "AudioUnitTool.h"
 #import "AudioUnitAecTool.h"
 #include "OpenRemoteUser.h"
 #include "ConnectServer.h"
-#include "AutoLock.h"
+
 CIntercomManage::CIntercomManage(INTERCOMCALLBACK callback)
 :m_uUserID(0),
 m_strAddress(""),
@@ -119,7 +118,6 @@ void CIntercomManage::On_SessionConnectStatus(CONNECT_NET_STATUS cs)
     
     if(cs == CS_LOGINED)
     {
-        
         m_callback(0,YES,"Multi//IntercomLOGin","OK");
         //IntercomLOG(@"登录成功");
         this->getUserList();
@@ -215,7 +213,7 @@ void CIntercomManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     }
     else if(strCMD=="REMOTEUSERQUIT")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         
         unsigned long ulUserID = pPacket.GetAttrib("USERID").AsUnsignedLong();
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
@@ -278,7 +276,7 @@ void CIntercomManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="RELOGIN")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         closeMediaSender();
         StopAllRemoteMedia();
         
@@ -289,7 +287,7 @@ void CIntercomManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="UPDATEUSERLIST")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         CMD_ITEM_LST lstItems = pPacket.GetItemList();
         for(CMD_ITEM_LST::const_iterator it=lstItems.begin();it!=lstItems.end();it++)
         {
@@ -334,14 +332,14 @@ void CIntercomManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="USERQUIT")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         if(m_pINetWorkCallback)
             m_pINetWorkCallback->IConnectStatusCallback(CS_LOGOUT);
     }
     
     else if(strCMD=="SENDVOICE")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
         std::string strGroupid = pPacket.GetAttrib("GROUPID").AsString();
         bool isinroom = pPacket.GetAttrib("ISINROOM").AsBoolean();
@@ -721,7 +719,7 @@ void CIntercomManage::SendAudioData(char*pData, int nLen)
 
 void CIntercomManage::openMediaSender()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     if (!m_OpenLocalUser)
     {
         m_OpenLocalUser = new OpenLocalUser;
@@ -734,7 +732,7 @@ void CIntercomManage::openMediaSender()
 
 void CIntercomManage::closeMediaSender()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     if (m_OpenLocalUser != NULL) {
         closeLocalAudio();
         m_OpenLocalUser->CloseAudioSend();
@@ -760,7 +758,7 @@ void CIntercomManage::openLocalAudio()
 
 void CIntercomManage::StopAllRemoteMedia()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     std::map<unsigned long, class OpenRemoteUser*>::iterator it=m_pOpenRemoteUser_map.begin();
     while (it!=m_pOpenRemoteUser_map.end()) {
         dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

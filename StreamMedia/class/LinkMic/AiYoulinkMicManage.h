@@ -15,7 +15,7 @@
 
 @required
 
- - (void) IConnectStatusCallback:(CONNECT_STATUS) cs;
+ - (void) IConnectStatusCallback:(CONNECT_NET_STATUS) cs;
 
 @optional
 

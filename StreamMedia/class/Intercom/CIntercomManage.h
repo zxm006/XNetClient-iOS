@@ -2,18 +2,15 @@
 #define _UU_CAPP_MANAGE_H_
 
 #include "ConnectServer.h"
-#include "CritSec.h"
-#include "AutoLock.h"
 #include "uuDefine.h"
 #include "OpenLocalUser.h"
 #include <list>
 #include <vector>
 #import <UIKit/UIKit.h>
-
 #import "TouchMoveView.h"
-
 #include <pthread/pthread.h>
-#include "CritSec.h"
+#include <mutex>
+
 #define SIZE_AUDIO_FRAME (2)
 
 typedef int (*INTERCOMCALLBACK)(int msgcode,bool issucceed,const char * funtype,const char *retMessage);
@@ -73,7 +70,6 @@ public:
      int SendDataToUser(unsigned long uPeerUserID ,const char* pData, unsigned long nLen);
     
 private:
- 
     
     virtual void On_SessionConnectStatus(CONNECT_NET_STATUS cs);
     virtual  int SendAllUserData(const char* pData, unsigned long nLen);
@@ -123,7 +119,7 @@ private:
     INetWorkCallback*          m_pINetWorkCallback;
     CLIENTUSERINFOLIST_MAP     m_UserInfoList;
     
-    KCritSec m_mKCritSec;
+    std::recursive_mutex    m_mutex;
     void  setupSession();
     
     void openMediaSender();

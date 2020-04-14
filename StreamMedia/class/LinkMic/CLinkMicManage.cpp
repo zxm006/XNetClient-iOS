@@ -5,7 +5,6 @@
 #import "AudioUnitAecTool.h"
 #include "OpenRemoteUser.h"
 #include "ConnectServer.h"
-#include "AutoLock.h"
 #import "TouchMoveView.h"
 #import <dispatch/queue.h>
 
@@ -74,7 +73,7 @@ void CLinkMicManage::disconnect()
     m_ConnectServer.Stop();
 }
 
-void CLinkMicManage::On_SessionConnectStatus(CONNECT_NET_STATUS cs)
+void CLinkMicManage::On_SessionConnectStatus(CONNECT_NET_STATUS  cs)
 {
     
     if(cs == CS_LOGINED)
@@ -197,7 +196,7 @@ void CLinkMicManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     else if(strCMD=="REMOTEUSERQUIT")
     {
         
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         
         unsigned long ulUserID = pPacket.GetAttrib("USERID").AsUnsignedLong();
         std::string strUserName = pPacket.GetAttrib("USERNAME").AsString();
@@ -237,7 +236,7 @@ void CLinkMicManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="RELOGIN")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         closeMediaSender();
         StopAllRemoteMedia();
         
@@ -248,7 +247,7 @@ void CLinkMicManage::OnDispatchCmd(KCmdPacketEx& pPacket)
     
     else if(strCMD=="UPDATEUSERLIST")
     {
-        KAutoLock lock(m_mKCritSec);
+         std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
         CMD_ITEM_LST lstItems = pPacket.GetItemList();
         for(CMD_ITEM_LST::const_iterator it=lstItems.begin();it!=lstItems.end();it++)
         {
@@ -536,7 +535,7 @@ void CLinkMicManage::resetLocalVideo()
 
 void CLinkMicManage::openMediaSender(bool isCapScreen)
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     if (!m_OpenLocalUser)
     {
         m_OpenLocalUser = new OpenLocalUser;
@@ -572,7 +571,7 @@ void CLinkMicManage::openMediaSender(bool isCapScreen)
 
 void CLinkMicManage::closeMediaSender()
 {
-//     KAutoLock lock(m_mKCritSec);
+//      std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     if (m_OpenLocalUser != NULL)
     {
         closeLocalAudio();
@@ -610,7 +609,7 @@ void CLinkMicManage::openLocalAudio()
 
 void CLinkMicManage::StopAllRemoteMedia()
 {
-    KAutoLock lock(m_mKCritSec);
+     std::lock_guard<std::recursive_mutex> lock_guard(m_mutex);
     std::map<unsigned long, class OpenRemoteUser*>::iterator it=m_pOpenRemoteUser_map.begin();
     while (it!=m_pOpenRemoteUser_map.end())
     {

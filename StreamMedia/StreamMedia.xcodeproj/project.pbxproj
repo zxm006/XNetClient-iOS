@@ -56,6 +56,18 @@
 		6156CA4A1F9F0ECE0055D856 /* MicBlow.h in Headers */ = {isa = PBXBuildFile; fileRef = 6156CA481F9F0ECE0055D856 /* MicBlow.h */; };
 		6156CA4B1F9F0ECE0055D856 /* MicBlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6156CA491F9F0ECE0055D856 /* MicBlow.m */; };
 		6156CA4D1F9F23D30055D856 /* uuDefine.c in Sources */ = {isa = PBXBuildFile; fileRef = 6156CA4C1F9F23D30055D856 /* uuDefine.c */; };
+		616FBE162445B5E4006964CC /* IntercomMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE122445B5E4006964CC /* IntercomMgr.h */; };
+		616FBE172445B5E4006964CC /* CIntercomManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE132445B5E4006964CC /* CIntercomManage.cpp */; };
+		616FBE182445B5E4006964CC /* CIntercomManage.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE142445B5E4006964CC /* CIntercomManage.h */; };
+		616FBE192445B5E4006964CC /* IntercomMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE152445B5E4006964CC /* IntercomMgr.m */; };
+		616FBE1C2445B697006964CC /* AudioUnitAecTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE1A2445B696006964CC /* AudioUnitAecTool.m */; };
+		616FBE1D2445B697006964CC /* AudioUnitAecTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE1B2445B696006964CC /* AudioUnitAecTool.h */; };
+		616FBE252445B947006964CC /* AiYoulinkMicManage.c in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE1F2445B947006964CC /* AiYoulinkMicManage.c */; };
+		616FBE262445B947006964CC /* CLinkMicManage.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE202445B947006964CC /* CLinkMicManage.h */; };
+		616FBE272445B947006964CC /* linkMicMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE212445B947006964CC /* linkMicMgr.h */; };
+		616FBE282445B947006964CC /* AiYoulinkMicManage.h in Headers */ = {isa = PBXBuildFile; fileRef = 616FBE222445B947006964CC /* AiYoulinkMicManage.h */; };
+		616FBE292445B947006964CC /* CLinkMicManage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE232445B947006964CC /* CLinkMicManage.cpp */; };
+		616FBE2A2445B947006964CC /* linkMicMgr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 616FBE242445B947006964CC /* linkMicMgr.cpp */; };
 		617EE1811EADB07100698020 /* H264HwEncoderImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 617EE17F1EADB07100698020 /* H264HwEncoderImpl.h */; };
 		617EE1821EADB07100698020 /* H264HwEncoderImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 617EE1801EADB07100698020 /* H264HwEncoderImpl.m */; };
 		618D567423EAA9EC003927F3 /* libXNet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 618D567323EAA9EC003927F3 /* libXNet.a */; };
@@ -150,6 +162,18 @@
 		615E56151F66851400869EEC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = StreamMedia/PrefixHeader.pch; sourceTree = "<group>"; };
 		616ECAAA1F4C04E500AE263D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		616ECAAB1F4C04E500AE263D /* StreamMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamMedia.h; sourceTree = "<group>"; };
+		616FBE122445B5E4006964CC /* IntercomMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntercomMgr.h; sourceTree = "<group>"; };
+		616FBE132445B5E4006964CC /* CIntercomManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CIntercomManage.cpp; sourceTree = "<group>"; };
+		616FBE142445B5E4006964CC /* CIntercomManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIntercomManage.h; sourceTree = "<group>"; };
+		616FBE152445B5E4006964CC /* IntercomMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntercomMgr.m; sourceTree = "<group>"; };
+		616FBE1A2445B696006964CC /* AudioUnitAecTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioUnitAecTool.m; sourceTree = "<group>"; };
+		616FBE1B2445B696006964CC /* AudioUnitAecTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnitAecTool.h; sourceTree = "<group>"; };
+		616FBE1F2445B947006964CC /* AiYoulinkMicManage.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AiYoulinkMicManage.c; sourceTree = "<group>"; };
+		616FBE202445B947006964CC /* CLinkMicManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLinkMicManage.h; sourceTree = "<group>"; };
+		616FBE212445B947006964CC /* linkMicMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linkMicMgr.h; sourceTree = "<group>"; };
+		616FBE222445B947006964CC /* AiYoulinkMicManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiYoulinkMicManage.h; sourceTree = "<group>"; };
+		616FBE232445B947006964CC /* CLinkMicManage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CLinkMicManage.cpp; sourceTree = "<group>"; };
+		616FBE242445B947006964CC /* linkMicMgr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = linkMicMgr.cpp; sourceTree = "<group>"; };
 		617C31F2203FA0C10021AFDF /* libHPDTS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHPDTS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		617EE17F1EADB07100698020 /* H264HwEncoderImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H264HwEncoderImpl.h; sourceTree = "<group>"; };
 		617EE1801EADB07100698020 /* H264HwEncoderImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H264HwEncoderImpl.m; sourceTree = "<group>"; };
@@ -263,6 +287,8 @@
 		6105E2F71D40566F0064735D /* class */ = {
 			isa = PBXGroup;
 			children = (
+				616FBE1E2445B947006964CC /* LinkMic */,
+				616FBE112445B5E4006964CC /* Intercom */,
 				61AFC3C71F8DC898002B8EE8 /* CVideoChat */,
 				612D179B1E306D1800691001 /* aes.h */,
 				612D179A1E306D1800691001 /* aes.c */,
@@ -372,6 +398,32 @@
 			path = StreamMedia;
 			sourceTree = "<group>";
 		};
+		616FBE112445B5E4006964CC /* Intercom */ = {
+			isa = PBXGroup;
+			children = (
+				616FBE1B2445B696006964CC /* AudioUnitAecTool.h */,
+				616FBE1A2445B696006964CC /* AudioUnitAecTool.m */,
+				616FBE122445B5E4006964CC /* IntercomMgr.h */,
+				616FBE152445B5E4006964CC /* IntercomMgr.m */,
+				616FBE132445B5E4006964CC /* CIntercomManage.cpp */,
+				616FBE142445B5E4006964CC /* CIntercomManage.h */,
+			);
+			path = Intercom;
+			sourceTree = "<group>";
+		};
+		616FBE1E2445B947006964CC /* LinkMic */ = {
+			isa = PBXGroup;
+			children = (
+				616FBE222445B947006964CC /* AiYoulinkMicManage.h */,
+				616FBE1F2445B947006964CC /* AiYoulinkMicManage.c */,
+				616FBE202445B947006964CC /* CLinkMicManage.h */,
+				616FBE232445B947006964CC /* CLinkMicManage.cpp */,
+				616FBE212445B947006964CC /* linkMicMgr.h */,
+				616FBE242445B947006964CC /* linkMicMgr.cpp */,
+			);
+			path = LinkMic;
+			sourceTree = "<group>";
+		};
 		6192899F1F70EDA00092E38B /* GPUImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,12 +496,15 @@
 				61AFC3CD1F8DC898002B8EE8 /* VideoChatMgr.h in Headers */,
 				6119BAC81E25CABA003F28BE /* TouchMoveView.h in Headers */,
 				610759B11DD40E1B00326BE2 /* liveFFmpegdecode.h in Headers */,
+				616FBE282445B947006964CC /* AiYoulinkMicManage.h in Headers */,
 				61F813771FE78F7E0072FD25 /* AudioComponentDescriptionWrapper.h in Headers */,
+				616FBE162445B5E4006964CC /* IntercomMgr.h in Headers */,
 				6105E73F1D4056700064735D /* CmdPacket.h in Headers */,
 				6105E7411D4056700064735D /* ConnectServer.h in Headers */,
 				6105E7461D4056700064735D /* CSIOpusDecoder.h in Headers */,
 				610759AD1DD40E1B00326BE2 /* CameraHelp.h in Headers */,
 				61F813711FE78F7E0072FD25 /* AudioUnitManager.h in Headers */,
+				616FBE262445B947006964CC /* CLinkMicManage.h in Headers */,
 				618D568523EE9695003927F3 /* AudioUnitAecMix.h in Headers */,
 				6105E7481D4056700064735D /* CSIOpusEncoder.h in Headers */,
 				6156CA4A1F9F0ECE0055D856 /* MicBlow.h in Headers */,
@@ -460,9 +515,11 @@
 				612F80781ECE8259005F9E19 /* VideoLibrary.h in Headers */,
 				6105E73D1D4056700064735D /* AppClient.h in Headers */,
 				612D179D1E306D1800691001 /* aes.h in Headers */,
+				616FBE272445B947006964CC /* linkMicMgr.h in Headers */,
 				6105E7581D4056700064735D /* KString.h in Headers */,
 				612F80761ECE8259005F9E19 /* VideoCaptureEncod.h in Headers */,
 				61F813721FE78F7E0072FD25 /* AUNodeWrapper.h in Headers */,
+				616FBE1D2445B697006964CC /* AudioUnitAecTool.h in Headers */,
 				61AFC3CE1F8DC898002B8EE8 /* CVideoChat.h in Headers */,
 				61F813781FE78F7E0072FD25 /* AudioStreamBasicDescriptionWrapper.h in Headers */,
 				617EE1811EADB07100698020 /* H264HwEncoderImpl.h in Headers */,
@@ -470,6 +527,7 @@
 				619289A41F70EDC20092E38B /* BeautifyFace.h in Headers */,
 				612F80741ECE8259005F9E19 /* CapScreenEnc.h in Headers */,
 				61298C84241C78450079CCFA /* AudioUnitTool.h in Headers */,
+				616FBE182445B5E4006964CC /* CIntercomManage.h in Headers */,
 				6105E7391D4056700064735D /* OpenRemoteUser.h in Headers */,
 				6105E7371D4056700064735D /* OpenLocalUser.h in Headers */,
 			);
@@ -563,13 +621,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				612D179C1E306D1800691001 /* aes.c in Sources */,
+				616FBE192445B5E4006964CC /* IntercomMgr.m in Sources */,
 				619289A71F70EDC20092E38B /* GPUImageBeautifyFilter.m in Sources */,
 				612F80771ECE8259005F9E19 /* VideoLibrary.cpp in Sources */,
 				61AFC3CF1F8DC898002B8EE8 /* VideoChatMgr.c in Sources */,
 				61F813731FE78F7E0072FD25 /* AudioStreamBasicDescriptionWrapper.m in Sources */,
 				6156CA4D1F9F23D30055D856 /* uuDefine.c in Sources */,
 				61B15DEE240BA91B00FB2228 /* XLog.cpp in Sources */,
+				616FBE172445B5E4006964CC /* CIntercomManage.cpp in Sources */,
 				6105E7491D4056700064735D /* CSIOpusEncoder.m in Sources */,
+				616FBE1C2445B697006964CC /* AudioUnitAecTool.m in Sources */,
 				61EF6196200457230050295D /* BeautifyFace.mm in Sources */,
 				61F813751FE78F7E0072FD25 /* AudioUnitManager.m in Sources */,
 				6105E7571D4056700064735D /* KString.cpp in Sources */,
@@ -577,7 +638,9 @@
 				6105E7381D4056700064735D /* OpenRemoteUser.cpp in Sources */,
 				61AFC3CC1F8DC898002B8EE8 /* CVideoChat.cpp in Sources */,
 				618D568623EE9695003927F3 /* AudioUnitAecMix.m in Sources */,
+				616FBE292445B947006964CC /* CLinkMicManage.cpp in Sources */,
 				6105E7471D4056700064735D /* CSIOpusDecoder.m in Sources */,
+				616FBE2A2445B947006964CC /* linkMicMgr.cpp in Sources */,
 				6119BAC91E25CABA003F28BE /* TouchMoveView.m in Sources */,
 				6105E7401D4056700064735D /* ConnectServer.cpp in Sources */,
 				612F80751ECE8259005F9E19 /* VideoCaptureEncod.cpp in Sources */,
@@ -587,6 +650,7 @@
 				612F80721ECE8259005F9E19 /* CapScreen.m in Sources */,
 				617EE1821EADB07100698020 /* H264HwEncoderImpl.m in Sources */,
 				612F80731ECE8259005F9E19 /* CapScreenEnc.cpp in Sources */,
+				616FBE252445B947006964CC /* AiYoulinkMicManage.c in Sources */,
 				610759B21DD40E1B00326BE2 /* liveFFmpegdecode.m in Sources */,
 				61298C85241C78450079CCFA /* AudioUnitTool.m in Sources */,
 				6105E7441D4056700064735D /* CSIDataQueue.c in Sources */,

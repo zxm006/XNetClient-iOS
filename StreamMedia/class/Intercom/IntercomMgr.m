@@ -38,11 +38,7 @@ public:
     virtual void INetReceiveData(unsigned long uPeerUserID, std::string strName, std::string strData, unsigned long nLen);
     virtual void INetBroadcastData(unsigned long uPeerUserID, const char* pData, unsigned long nLen);
     virtual void INetAudioStatus(unsigned long uPeerUserID,bool isRoom,AUDIO_SEND_STATUS AudioStatus,std::string strName) ;
-    
     virtual void ILoginTime(unsigned long loginTime) ;
- 
-
-    
 };
 
 static INetWork * m_INetWork =NULL;
@@ -239,66 +235,66 @@ void INetWork::ILoginTime(unsigned long loginTime)
     }
 }
 
-int checkIntercomIsDomain(const char *pAddr)
-{
-    if(!pAddr || strlen(pAddr) < 1)
-    {
-        return -1;
-    }
-    unsigned long  add = inet_addr(pAddr);
-    if (add == INADDR_NONE)
-    {
-        //printf("");
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
-}
+//int checkIntercomIsDomain(const char *pAddr)
+//{
+//    if(!pAddr || strlen(pAddr) < 1)
+//    {
+//        return -1;
+//    }
+//    unsigned long  add = inet_addr(pAddr);
+//    if (add == INADDR_NONE)
+//    {
+//        //printf("");
+//        return 0;
+//    }
+//    else
+//    {
+//        return 1;
+//    }
+//}
+//
+//int get_Intercom_ip_by_domain(const char *domain, char *ip)
+//{
+//    char **pptr;
+//    struct hostent *hptr;
+//
+//    hptr = gethostbyname(domain);
+//    if(NULL == hptr)
+//    {
+//        printf("gethostbyname error for host:%s/n", domain);
+//        return -1;
+//    }
+//
+//    for(pptr = hptr->h_addr_list ; *pptr != NULL; pptr++)
+//    {
+//        if (NULL != inet_ntop(hptr->h_addrtype, *pptr, ip, IP_SIZE) )
+//        {
+//            return 0; // 只获取第一个 ip
+//        }
+//    }
+//
+//    return -1;
+//}
 
-int get_Intercom_ip_by_domain(const char *domain, char *ip)
-{
-    char **pptr;
-    struct hostent *hptr;
-    
-    hptr = gethostbyname(domain);
-    if(NULL == hptr)
-    {
-        printf("gethostbyname error for host:%s/n", domain);
-        return -1;
-    }
-    
-    for(pptr = hptr->h_addr_list ; *pptr != NULL; pptr++)
-    {
-        if (NULL != inet_ntop(hptr->h_addrtype, *pptr, ip, IP_SIZE) )
-        {
-            return 0; // 只获取第一个 ip
-        }
-    }
-    
-    return -1;
-}
-
-void loginIntercomServer(const char* szServerHostURL,const char* szUserName, const char* headUrl,const char* nickName,double latitude,double longitude,const char* szGameId,const char* szGameServerId,const char* szRoomId,const char* szGroupId,BOOL listenInRoom,const char* szexpand,bool isencrypt)
+void loginIntercomServer(const char* ip,const char* szUserName, const char* headUrl,const char* nickName,double latitude,double longitude,const char* szGameId,const char* szGameServerId,const char* szRoomId,const char* szGroupId,BOOL listenInRoom,const char* szexpand,bool isencrypt)
 {
     
-    char ip[IP_SIZE];
-    if (checkIntercomIsDomain(szServerHostURL)==1)
-    {
-        memcpy(ip, szServerHostURL, IP_SIZE);
-    }
-    else
-    {
-        int  ret=  get_Intercom_ip_by_domain(mediaServer_URL, ip);
-        
-        if (ret!=0)
-        {
-            return;
-            
-        }
-    }
-    
+//    char ip[IP_SIZE];
+//    if (checkIntercomIsDomain(szServerHostURL)==1)
+//    {
+//        memcpy(ip, szServerHostURL, IP_SIZE);
+//    }
+//    else
+//    {
+//        int  ret=  get_Intercom_ip_by_domain(mediaServer_URL, ip);
+//
+//        if (ret!=0)
+//        {
+//            return;
+//
+//        }
+//    }
+//
     
     if(m_intercomManage)
     {
