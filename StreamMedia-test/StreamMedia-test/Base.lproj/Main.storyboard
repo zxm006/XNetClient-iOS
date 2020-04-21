@@ -87,7 +87,7 @@
                                     <action selector="btclosecam:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEa-WS-e9f"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123.207.174.133" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-9b-842">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="192.168.1.8" borderStyle="roundedRect" placeholder="123.207.174.133" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-9b-842">
                                 <rect key="frame" x="106" y="146.5" width="261" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>

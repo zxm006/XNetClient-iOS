@@ -286,10 +286,10 @@ static AudioUnitManager* g_AudioUnitManager= nil;
 {
     if (_graph) {
         AUGraphStop(_graph);
+        AUGraphUninitialize(_graph);
         AUGraphIsRunning(_graph, &_playing);
         AUGraphDisconnectNodeInput(_graph, iONode,0);
         AUGraphRemoveNode(_graph, iONode);
-        AUGraphUninitialize(_graph);
         AUGraphClose(_graph);
         DisposeAUGraph(_graph);
     }

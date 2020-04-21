@@ -132,16 +132,13 @@ void IVideoChat::IConnectStatusCallback(CONNECT_NET_STATUS cs)
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             m_CVideoChat->disconnect();
+            m_CVideoChat->setNetWorkCallback(NULL);
             usleep(50000);
             delete  m_CVideoChat;
             m_CVideoChat = NULL;
         });
         }
-        if (m_IVideoChat)
-        {
-            delete m_IVideoChat;
-            m_IVideoChat =NULL;
-        }
+   
         if (m_VideoChatDelegate &&[m_VideoChatDelegate respondsToSelector:@selector(IConnectStatusCallback:)])
         {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -339,7 +336,7 @@ void loginVideoChatServer(const char* szServerHostURL,const char* szUserName, co
    if(m_CVideoChat)
     {
       logoutVideoChatServer();
-      usleep(1000000);
+      usleep(10000);
    }
   
     m_CVideoChat = new CVideoChat();
@@ -494,6 +491,7 @@ void  logoutVideoChatServer()
     if(m_CVideoChat)
     {
         m_CVideoChat->logoutServer();
+        
     }
 }
 
